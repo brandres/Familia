@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap 4 Website Example</title>
+    <title>FMLE Site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -9,19 +9,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="logo.png">
 
 </head>
 <body>
+
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="overlay"><h1>Familia Lara Erazo</h1></div>
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <div class="img"><img class="d-block w-100" src="img/header1.jpg" alt="First slide"></div>
         </div>
         <div class="carousel-item">
-            <div class="img"><img class="d-block w-100" src="img/header1.jpg" alt="Second slide"></div>
+            <div class="img"><img class="d-block w-100" src="img/header2.jpeg" alt="Second slide"></div>
         </div>
         <div class="carousel-item">
-            <div class="img"><img class="d-block w-100" src="img/header1.jpg" alt="Third slide"></div>
+            <div class="img"><img class="d-block w-100" src="img/header3.jpg" alt="Third slide"></div>
+        </div>
+        <div class="carousel-item">
+            <div class="img"><img class="d-block w-100" src="img/header4.jpg" alt="Third slide"></div>
         </div>
     </div>
 </div>
@@ -37,7 +43,7 @@
                 <a class="nav-link" href="nextcloud">Nextcloud</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Dynmap</a>
+                <a class="nav-link" href="dynmap">Dynmap</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -49,16 +55,16 @@
 <div class="container-fluid container-fluid--no-padding">
     <div class="row row-no-padding container-fluid--no-padding">
         <div class="col-sm-4">
-            <iframe width="400" height="215" src="nextcloud/index.php/apps/calendar/embed/Jkci5rn5e4yMLwRt"></iframe>
+            <h3>Calendario</h3>
+            <iframe src="nextcloud/index.php/apps/calendar/embed/DZxRHwdNo7SpCdix" class="calendario" frameBorder="0"></iframe>
         </div>
         <div class="col-sm-8">
-            <iframe src="dynmap/?worldname=world&mapname=flat&zoom=5&x=605&y=64&z=533"
-                    class="mapa"></iframe>
+            <iframe src="dynmap/?worldname=world&mapname=flat&zoom=5&x=605&y=64&z=533" class="mapa" frameBorder="0"></iframe>
         </div>
     </div>
 </div>
 <div class="jumbotron text-center" style="margin-bottom:0">
-    <p>Footer</p>
+    <p>Pagina por Brandon Andrés Lara Erazo</p>
 </div>
 
 </body>
