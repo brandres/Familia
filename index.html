@@ -8,6 +8,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/fullcalendar.js"></script>
+    <script src="js/index.js"></script>
+    <link href='fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <script src='fullcalendar/core/main.js'></script>
+    <script src='fullcalendar/daygrid/main.js'></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="logo.png">
 
@@ -15,7 +21,7 @@
 <body>
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="overlay"><h1>Familia Lara Erazo</h1></div>
+    <div class="overlay"><p id="simpleBlur">Familia Lara Erazo</p></div>
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <div class="img"><img class="d-block w-100" src="img/header1.jpg" alt="First slide"></div>
@@ -56,7 +62,7 @@
     <div class="row row-no-padding container-fluid--no-padding">
         <div class="col-sm-4">
             <h3>Calendario</h3>
-            <iframe src="nextcloud/index.php/apps/calendar/embed/DZxRHwdNo7SpCdix" class="calendario" frameBorder="0"></iframe>
+            <div id='calendar'></div>
         </div>
         <div class="col-sm-8">
             <iframe src="dynmap/?worldname=world&mapname=flat&zoom=5&x=605&y=64&z=533" class="mapa" frameBorder="0"></iframe>
