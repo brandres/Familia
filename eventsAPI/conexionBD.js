@@ -5,12 +5,10 @@ const mongoDbUrl='mongodb://fullcalendar:6121@localhost:27017/familia';
 let cliente;
 let bd;
 
-function connect(callback){
-    mongoClient.connect(mongoDbUrl, (err, client) => {
-        console.log(err);
-        cliente = client;
-        bd = cliente.db('familia')
-        callback();
+function connect(){
+    mongoClient.connect(mongoDbUrl,  function (err, client)  {
+        cliente =  client;
+        bd =  cliente.db('familia');
     });
 }
 function getBD(){

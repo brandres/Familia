@@ -9,8 +9,9 @@ app.use(morgan('combined'));
 
 app.route('/eventos')
     .get(function(req, res) {
-
-        res.send(controlador.getEventos());
+        controlador.getEventos().then(function(result){
+            res.send(result);
+        });
     })
     .post(function(req, res) {
         controlador.insertarEvento(req.body);
@@ -20,3 +21,4 @@ app.route('/eventos')
         res.send('Update the book');
     });
 app.listen(3000);
+controlador.conectarseBD();
