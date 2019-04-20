@@ -1,9 +1,26 @@
 
-var mgdb=require('mongodb');
-var mongoclient = mgdb.MongoClient;
+const mongoClient = require( 'mongodb' ).MongoClient;
 
-var url='mongodb://localhost:27017/familia';
+const mongoDbUrl='mongodb://localhost:27017';
+let mongodb;
 
-mongoclient.connect(url,function (err,db) {
-    console.log('conectado');
-});
+function connect(callback){
+    mongoClient.connect(mongoDbUrl, (err, client) => {
+        console.log(err);
+        mongodb = client;
+        callback();
+    });
+}
+function getBD(){
+    return mongodb.db('familia');
+}
+
+function close(){
+    mongodb.close();
+}
+
+module.exports = {
+    connect,
+    getBD,
+    close
+};

@@ -1,22 +1,22 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var morgan = require('morgan');
+let morgan = require('morgan');
+var controlador = require('./controladorEventos.js');
+
 app.use(bodyParser.json());
 app.use(morgan('combined'));
 
-app.route('/events')
-    .all(function(req, res, next) {
-        // runs for all HTTP verbs first
-        // think of it as route specific middleware!
-    })
-    .get(function(req, res, next) {
+app.route('/eventos')
+    .get(function(req, res) {
 
+        res.send('Get a random book');
     })
-    .post(function(req, res, next) {
-        // maybe add a new event...
+    .post(function(req, res) {
+        controlador.insertarEvento(req.body);
+        res.send('se ha insertado ' + req.body);
     })
-    .put(function(req, res, next) {
-        // maybe add a new event...
+    .put(function(req, res) {
+        res.send('Update the book');
     });
 app.listen(3000);
