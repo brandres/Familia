@@ -5,7 +5,6 @@ exports.insertarEvento = function (evento){
     accesoBD.getBD().collection('eventos').insertOne(evento,function(err) {
         if (err) throw err;
         console.log("1 document inserted");
-        accesoBD.close();
     })
 };
 

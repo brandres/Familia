@@ -5,12 +5,17 @@ let morgan = require('morgan');
 var controlador = require('./controladorEventos.js');
 
 app.use(bodyParser.json());
-app.use(morgan('combined'));
+app.use(morgan('tiny'));
 
 app.route('/eventos')
     .get(function(req, res) {
         controlador.getEventos().then(function(result){
-            res.send(result);
+            res.set('Content-Type', 'application/json')
+            var jsonResult = {
+                codigo: 'ok',
+                eventos: result
+            }
+            res.send(jsonResult);
         });
     })
     .post(function(req, res) {
@@ -20,5 +25,5 @@ app.route('/eventos')
     .put(function(req, res) {
         res.send('Update the book');
     });
-app.listen(3000);
+app.listen(8080);
 controlador.conectarseBD();
