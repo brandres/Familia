@@ -1,24 +1,25 @@
 
 const mongoClient = require( 'mongodb' ).MongoClient;
 
-const mongoDbUrl='mongodb://localhost:27017';
-let mongodb;
+const mongoDbUrl='mongodb://fullcalendar:6121@localhost:27017/familia';
+let cliente;
+let bd;
 
 function connect(callback){
     mongoClient.connect(mongoDbUrl, (err, client) => {
         console.log(err);
-        mongodb = client;
+        cliente = client;
+        bd = cliente.db('familia')
         callback();
     });
 }
 function getBD(){
-    return mongodb.db('familia');
+    return bd;
 }
 
 function close(){
-    mongodb.close();
+    cliente.close();
 }
-
 module.exports = {
     connect,
     getBD,

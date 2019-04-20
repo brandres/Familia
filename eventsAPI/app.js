@@ -10,11 +10,11 @@ app.use(morgan('combined'));
 app.route('/eventos')
     .get(function(req, res) {
 
-        res.send('Get a random book');
+        res.send(controlador.getEventos());
     })
     .post(function(req, res) {
         controlador.insertarEvento(req.body);
-        res.send('se ha insertado ' + req.body);
+        res.send('se ha insertado ' + JSON.stringify(req.body));
     })
     .put(function(req, res) {
         res.send('Update the book');
