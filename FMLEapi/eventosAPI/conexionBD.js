@@ -7,8 +7,8 @@ let bd;
 
 function connect(){
     mongoClient.connect(mongoDbUrl,  function (err, client)  {
-        cliente =  client;
-        bd =  cliente.db('familia');
+        console.log(err);
+        bd =  client.db('familia');
     });
 }
 function getBD(){

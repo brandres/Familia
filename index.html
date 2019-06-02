@@ -4,62 +4,44 @@
     <title>FMLE Site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.from%2CPromise%2CSymbol%2CObject.setPrototypeOf%2CObject.getOwnPropertySymbols"></script>
     <script src="https://cdn.jsdelivr.net/npm/superagent"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/fullcalendar.js"></script>
+    <script src="js/mqtt.js"></script>
+    <script src="js/styles.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href='lib/core/main.css' rel='stylesheet' />
     <link href='lib/daygrid/main.css' rel='stylesheet' />
     <script src='lib/core/main.js'></script>
     <script src='lib/daygrid/main.js'></script>
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="icon" type="image/png" href="logo.png">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 
 </head>
 <body>
-
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="overlay"><p id="simpleBlur">Familia Lara Erazo</p></div>
-    <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-            <div class="img"><img class="d-block w-100" src="img/header1.jpg" alt="First slide"></div>
-        </div>
-        <div class="carousel-item">
-            <div class="img"><img class="d-block w-100" src="img/header2.jpeg" alt="Second slide"></div>
-        </div>
-        <div class="carousel-item">
-            <div class="img"><img class="d-block w-100" src="img/header3.jpg" alt="Third slide"></div>
-        </div>
-        <div class="carousel-item">
-            <div class="img"><img class="d-block w-100" src="img/header4.jpg" alt="Third slide"></div>
-        </div>
-    </div>
-</div>
-
-<nav class="navbar navbar-expand-sm  navbar-dark sticky-top opaque-navbar" id="barra-navegacion">
-    <img src="img/logo.png" class="navbar-brand logofmle" href="index.html">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">FMLE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="nextcloud">Nextcloud</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="dynmap">Dynmap</a>
+                <a class="nav-link" href="/nextcloud">Nextcloud</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="/dynmap">Dynmap</a>
             </li>
         </ul>
     </div>
 </nav>
-
+<img src="img/fondo7.jpg" class="img-fluid" id="fondo">
 <div class="container-fluid container-fluid--no-padding">
     <div class="row row-no-padding container-fluid--no-padding">
         <div class="col-sm-4">
@@ -72,6 +54,11 @@
     </div>
 </div>
 <div class="jumbotron text-center" style="margin-bottom:0">
+    <form onsubmit="confirmInput()" action="">
+        Topic name: <input id="fname" type="text" size="20">
+        <input type="submit">
+        <h3 id="respuestaMQTT"></h3>
+    </form>
     <p>Pagina por Brandon Andrés Lara Erazo</p>
 </div>
 

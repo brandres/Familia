@@ -2,10 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
+        height: 520,
         plugins: ['dayGrid'],
         events: function (info, successCallback) {
             console.log(info);
-            superagent.get('fullcalendar/eventos')
+            superagent.get('api/fullcalendar/eventos')
                 .type('json')
                 .query({
                     start: info.startStr,
@@ -31,14 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         displayEventTime: true,
         displayEventEnd: true,
-        eventRender: function(info) {
-            var tooltip = new Tooltip(info.el, {
-                title: info.event.extendedProps.description,
-                placement: 'top',
-                trigger: 'hover',
-                container: 'body'
-            });
-        },
     });
 
     calendar.render();

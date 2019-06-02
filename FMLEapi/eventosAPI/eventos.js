@@ -1,20 +1,20 @@
 var express = require('express');
-var app = express();
+var router = express.Router();
 var bodyParser = require('body-parser');
 let morgan = require('morgan');
 var controlador = require('./controladorEventos.js');
 
-app.use(bodyParser.json());
-app.use(morgan('tiny'));
+router.use(bodyParser.json());
+router.use(morgan('tiny'));
 
-app.route('/eventos')
+router.route('/eventos')
     .get(function(req, res) {
         controlador.getEventos().then(function(result){
-            res.set('Content-Type', 'application/json')
+            res.set('Content-Type', 'application/json');
             var jsonResult = {
                 codigo: 'ok',
                 eventos: result
-            }
+            };
             res.send(jsonResult);
         });
     })
@@ -25,5 +25,6 @@ app.route('/eventos')
     .put(function(req, res) {
         res.send('Update the book');
     });
-app.listen(8080);
+
+module.exports = router;
 controlador.conectarseBD();
