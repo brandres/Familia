@@ -1,7 +1,0 @@
-{
-  "name": "eventsAPI",
-  "version": "1.0.0",
-  "dependencies": {
-    "mongodb": "^3.2.3"
-  }
-}
