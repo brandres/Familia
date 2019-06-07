@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- 
+  Ejemplos sobre Three.js : Cubo texturado animado
+   	Cubo con color por vertice y mapa uv sobre textura en cruz;
+   	Util para comprobar si funciona Threejs sobre el navegador.
+  rvivo@upv.es 2015
+-->
+<html lang="es">
+	<head>
+		<meta charset='utf-8'>
+		<title>Brandon Andrés Lara App</title>
+		<link rel="stylesheet" type="text/css" href="css/elements.css">
+	</head>
+	<body>
+
+		<!-- Contenedor del app -->
+		<div id="container">
+			<br>
+		</div>
+		<div id="personalDataContainer" >
+			<h2><strong>Brandon Andr&eacute;s Lara Erazo</strong></h2>
+			<p>Alumno de aplicaciones graficas y multimedia</p>
+			<p>M&aacute;ster en ingenieria informatica (MUIINF)</p>
+			<p>Email:&nbsp;<a href="mailto:bralaer@inf.upv.es">bralaer@inf.upv.es</a></p>
+			<p>Telefono: 631368863</p>
+			<p>&nbsp;</p>
+		</div>
+		<div id="slidercontainer">
+			<p>Velocidad de rotación:</p>
+			<input type="range" min="1" max="100" value="50" class="slider" id="sliderVRotacion">
+			<p>Posición x cubo:</p>
+			<input type="range" min="-100" max="100" value="1" class="slider" id="sliderPosXCamara">
+			<p>Posición y cubo:</p>
+			<input type="range" min="-100" max="100" value="10" class="slider" id="sliderPosYCamara">
+			<p>Posición z cubo:</p>
+			<input type="range" min="-100" max="100" value="1" class="slider" id="sliderPosZCamara">
+			<p>Seleccionar color de la luz: </p>
+			<input type="color" name="favcolor" value="#ffffff" id="colorPickerLuz">
+		</div>
+		<!-- Scripts de biblioteca -->
+		<script src="lib/three.min_r71.js"></script>
+		<script src="lib/three.min_r76.js"></script>
+		<script src="lib/OrbitControls.js"></script>
+		<script src="lib/Coordinates.js"></script>
+		<script  src="lib/Tween.js"></script>
+		<script src="threejs/test.js"></script>
+
+	</body>
+</html>
