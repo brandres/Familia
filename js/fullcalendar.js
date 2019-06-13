@@ -1,26 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
-
     var calendar = new FullCalendar.Calendar(calendarEl, {
         height: 520,
         plugins: ['dayGrid'],
         events: function (info, successCallback) {
-            console.log(info);
-            superagent.get('api/fullcalendar/eventos')
-                .type('json')
-                .query({
+            $.ajax({
+                type: "GET",
+                url: 'api/fullcalendar/eventos',
+                data: {
                     start: info.startStr,
                     end: info.endStr
-                })
-                .end(function (err, res) {
-
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log(JSON.parse(res.text).eventos);
-                        successCallback(JSON.parse(res.text).eventos);
-                    }
-                })
+                },
+                contentType: "application/json"
+            }).done(function (res) {
+                console.log(res);
+                successCallback(res.eventos);
+            });
         },
         eventClick: function(info) {
             alert('Event: ' + info.event.title);

@@ -1,16 +1,17 @@
 $(document).ready(function() {
     var sockIO = io();
     $(".pubSubButton").click(function(event){
-        var data = {action: arguments[0].target.id,message:'holamundo'};
+        var data = {id: sockIO.id,action: arguments[0].target.id,message:'holamundo'};
         $.ajax({
             type: "POST",
-            url: '/api/mqtt/'+ document.getElementById('topic').value,
+            url: '/api/mqtt/' + document.getElementById('topic').value,
             data: JSON.stringify(data),
             contentType: "application/json"
         }).done(function () {
+            console.log(sockIO.id);
             console.log("done");
         });
-        sockIO.on(document.getElementById('topic').value, function(msg){
+        sockIO.on(sockIO.id +'/'+document.getElementById('topic').value, function(msg){
             console.log(msg);
             document.getElementById('respuestaMQTT').innerHTML = msg;
         });
