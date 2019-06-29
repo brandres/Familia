@@ -52,9 +52,6 @@ router.route('/*')
                 break;
         }
         res.send('OK');
-    })
-    .put(function (req, res) {
-        res.send('resultado');
     });
 
 client.on('message', function (topic, message) {
