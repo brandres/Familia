@@ -25,6 +25,5 @@ router.route('/eventos')
     .put(function(req, res) {
         res.send('Update the book');
     });
-
 module.exports = router;
 controlador.conectarseBD();
